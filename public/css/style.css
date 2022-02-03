@@ -8,7 +8,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-#slider{
+.swiper{
   position: relative;
   transform: translateY(-4rem);
   width: 100%;
@@ -55,7 +55,7 @@ nav{
   background-color: rgb(0, 0, 0, 0.05)
 }
 
-.slider-contents{
+.swiper-slide{
   position: relative;
   height: 100vh;
 }
@@ -76,25 +76,25 @@ nav{
   align-items: center;
 }
 
-.slider-contents h1{
+.swiper-slide h1{
   text-align: center;
   font-weight: 600;
   font-size: 2.5rem;
 }
 
-.slider-contents p{
+.swiper-slide p{
   padding: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
 }
 
-.slider-contents a{
+.swiper-slide a{
   position: relative;
   color: var(--black);
   cursor: pointer;
 }
 
-.slider-contents a::after{
+.swiper-slide a::after{
   content: '';
   position: absolute;
   top: 1rem;
@@ -106,7 +106,7 @@ nav{
   transition: all 0.3s ease;
 }
 
-.slider-contents a:hover::after{
+.swiper-slide a:hover::after{
   opacity: 1;
 }
 
@@ -134,35 +134,39 @@ nav{
   background-color: #e6e6e6;
 }
 
-.down-arrow{
+.down-arrow-link{
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem;
   left: 50%;
+  transform: translateX(-50%);
+  animation: movingArrow 1.8s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.down-arrow{
   width: 0.7rem;
   height: 0.7rem;
-  transform: translateX(-50%);
   transform: rotate(45deg);
-  cursor: pointer;
   border-bottom: 2px solid var(--black);
   border-right: 2px solid var(--black);
-  animation: movingArrow 1.8s ease-in-out infinite;
 }
 
 @keyframes movingArrow{
   0%{
-    bottom: 2.4rem;
+    bottom: 3rem;
   }
   40%{
-    bottom: 2rem;
+    bottom: 2.6rem;
   }
   50%{
-    bottom: 2.4rem;
+    bottom: 3rem;
   }
   60%{
-    bottom: 2rem;
+    bottom: 2.6rem;
   }
   100%{
-    bottom: 2.4rem;
+    bottom: 3rem;
   }
 }
 
