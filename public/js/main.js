@@ -11,33 +11,6 @@ linksArr.addEventListener('click', e => {
   })
 });
 
-console.log(targetElement.getBoundingClientRect().top);
-
-
-// const mouseWheelScroll = () => {
-
-//   const sliders = document.querySelectorAll('.swiper-slide');
-//   console.log(sliders);
-
-//   sliders.forEach(slider => {
-//   const targetTop = slider.getBoundingClientRect().top;
-//   console.log(targetTop)
-
-//   for(let i = 0; i < sliders.length; i++){
-//     const mouseTop = sliders[i].getBoundingClientRect().top;
-//     console.log(mouseTop)
-//     scrollTop = sliders[i+1].getBoundingClientRect().top;
-//   }
-
-//   window.scrollTo({
-//     top: scrollTop,
-//     behavior: 'smooth'
-//   })
-// }
-// }
-
-  let topArr = [];
-
   const sliders = document.querySelectorAll('.swiper-slide');
   // console.log(sliders);
 
@@ -53,50 +26,25 @@ console.log(targetElement.getBoundingClientRect().top);
 
         console.log(index + 1)
 
-        const scrollTop = window.pageYOffset + array[index + 1].getBoundingClientRect().top;
+        if(e.deltaY > 0){
+          const scrollUp = window.pageYOffset + array[index + 1].getBoundingClientRect().top;
+
+          window.scrollTo({
+          top: scrollUp,
+          behavior: "smooth"
+          })
+        }else if(e.deltaY < 0){
+
+          const scrollDown = window.pageYOffset + array[index - 1].getBoundingClientRect().top;
+          window.scrollTo({
+          top: scrollDown,
+          behavior: "smooth"
+
+        })
+        }
 
         console.log(scrollTop);
 
-      window.scrollTo({
-        top: scrollTop,
-        behavior: "smooth"
-      })
+      
       } )
     })
-
-
-    
-
-//     sliders.forEach(slider => {
-//   const targetTop = slider.getBoundingClientRect().top;
-
-  
-
-//   console.log(targetTop)
-  
-
-  
-  
-// });
-
-// const mouseWheelScroll = () => {
-
-
-// for(let i = 0; i < sliders.length; i++){
-//     const mouseTop = sliders[i].getBoundingClientRect().top;
-//     console.log(mouseTop)
-//     topArr.push(mouseTop);
-//     console.log(topArr);
-
-//     switch(window.pageYOffset){
-//       case mouseTop[0]:
-//         window.scrollTo({
-//               top: mouseTop[1],
-//               behavior: 'smooth'
-//             })
-//     }
-//   }
-
-//   }
-
-//   window.addEventListener('wheel', mouseWheelScroll)
